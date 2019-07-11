@@ -1,0 +1,82 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model List<WeddingPlan>
+
+<div class="Dnavheader">
+    <h3 class="navheaderh1">DOjO Activity Center <BR> Welcome, @ViewBag.CurrentUser.FirstName !</h2>
+    <a class="float-right" href="logout"><button>LOG OUT</button></a>
+</div>
+<style>
+    .red{
+        color: red;
+    }
+    .tan{
+        background-color: tomato;
+    }
+    .green{
+        background-color: greenyellow;
+    }
+</style>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Activity</th>
+      <th scope="col">Date & Time</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Event Coordinator</th>
+      <th scope="col">No. of Parcticipants</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="4">No upcoming activity to display. Be the first and add your activity!</td>
+            </tr>
+        }
+    @foreach(WeddingPlan plan in Model)
+    {
+        <tr>
+            <td><a href="/activity/@plan.PlanId">@plan.WedderOne</a></td>
+            <td>@plan.PlayTime</td>
+            <td>@plan.Duration</td>
+            <td>@plan.Creator.FirstName</td>
+            <td>@plan.Guests.Count</td>
+            <td>
+            @if(@ViewBag.CurrentUser.UserId == @plan.CreatorId)
+            {
+                <a  href="/delete/@plan.PlanId"><button class="red">DELETE</button></a> 
+            }
+                @{
+                    var count = 0;
+
+                    foreach (var guest in @plan.Guests)
+                    {
+
+                        if (@ViewBag.CurrentUser.UserId == guest.UserId)
+                        {
+                            count++;
+                        }
+                    }
+                    if (count == 0)
+                    {
+                        <a href="/RSVP/@plan.PlanId"><button class="green">JOIN</button></a>
+                    }
+                    else
+                    {
+                        <a  href="/RSVP/@plan.PlanId"><button class="tan">LEAVE</button></a>
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+  </tbody>
+</table>
+
+<a class="btn btn-primary" href="new" role="button">Add New Activity</a>
+

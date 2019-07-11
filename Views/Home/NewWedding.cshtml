@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model WeddingPlannerRedo.Models.WeddingPlan
+<div class="Dnavheader">
+    <h3 class="navheaderh1">Dojo Activity Center </h2>
+    <a class="float-right" href="/logout"><button>LOG OUT</button></a>
+    <a class="float-right" href="/dashboard"><button>Dashboard</button></a> 
+</div>
+
+    <div class="Register">
+        <div class="card">
+            <div class="card-header">
+                <h3>Create an Activity</h3>
+            </div>
+
+            <div class="card-body">
+                <form action="create-wedding" method="post">
+                    <div class="form-Box">
+                        <div class="form-group">
+                            <span class="alert-danger" asp-validation-for="WedderOne"></span><br>
+                            <label asp-for="WedderOne"></label>
+                            <input asp-for="WedderOne" type="text" >
+                        </div>
+                        <!------------------------------------------------------------------------------------------>
+                        <!-- <span class="alert-danger" asp-validation-for="WedderTwo"></span><br>
+                        <label asp-for="WedderTwo"></label>
+                        <input asp-for="WedderTwo" type="text" > -->
+                        <!------------------------------------------------------------------------------------------->
+                        <div class="form-group">
+                            <span class="alert-danger" asp-validation-for="PlayDate"></span><br>
+                            <label asp-for="PlayDate"></label>
+                            <input asp-for="PlayDate" type="date" min="2019-6-24" max="2020-6-24">
+                        </div>
+                        <!------------------------------------------------------------------------------------------->
+                        <div class="form-group">
+                            <span class="alert-danger" asp-validation-for="PlayTime"></span><br>
+                            <label asp-for="PlayTime"></label>
+                            <input asp-for="PlayTime" type="time">
+                        </div>
+                        <!------------------------------------------------------------------------------------------->
+                        <div class="form-group">
+                            <span class="alert-danger" asp-validation-for="Duration"></span><br>
+                            <label asp-for="Duration"></label>
+                            <input asp-for="Duration">
+                            <select name="timeLength">
+                                <option value="Minutes">Minutes</option>
+                                <option value="Hours">Hours</option>
+                                <option value="Days">Days</option>
+                            </select>
+                        </div>
+                        <!-------------------------------------------------------------------------------------------->
+                        <div class="form-group">
+                            <span class="alert-danger" asp-validation-for="WeddingAddress"></span><br>
+                            <label asp-for="WeddingAddress"></label>
+                            <input asp-for="WeddingAddress" type=textarea  rows="3">
+                        </div>
+                        <!---------------------------------------------------------------------------------------------->
+                        <input type="hidden" asp-for="CreatorId" value=" @ViewBag.CurrentUser ">
+
+                    </div>
+
+                    <button class="btn btn-pill btn-block btn-primary active" type="submit">Create Activity</button>
+                </form>
+            </div>
+        </div>
+    </div>

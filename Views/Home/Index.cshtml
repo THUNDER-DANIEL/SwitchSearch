@@ -1,0 +1,74 @@
+<!-- @{
+    ViewData["Title"] = "Welcome to ACtivity Center";
+} -->
+@model ViewModel
+
+<div class="Bow">
+    <h2> ACtivity Center</h2>
+</div>
+
+<div class="BoxWrapper">
+
+    <div class="Register">
+        <div class="card">
+            <div class="card-header">
+                <h2>Register</h2>
+            </div>
+
+            <div class="card-body">
+                <form action="register" method="post">
+                    <div class="form-group">
+                        <label asp-for="User.FirstName"></label><br>
+                        <span class="alert-danger" asp-validation-for="User.FirstName"></span>
+                        <input class="form-control" asp-for="User.FirstName" type="text" >
+
+                        <label asp-for="User.LastName"></label><br>
+                        <span class="alert-danger" asp-validation-for="User.LastName"></span>
+                        <input class="form-control" asp-for="User.LastName" type="text" >
+
+                        <label asp-for="User.Email"></label><br>
+                        <span class="alert-danger" asp-validation-for="User.Email"></span>
+                        <input class="form-control" asp-for="User.Email" type="email" >
+
+                        <label asp-for="User.Password"></label><br>
+                        <span class="alert-danger" asp-validation-for="User.Password"></span>
+                        <input class="form-control" asp-for="User.Password" type="password">
+
+                        <label asp-for="User.Confirm"></label><br>
+                        <span class="alert-danger" asp-validation-for="User.Confirm"></span>
+                        <input class="form-control" asp-for="User.Confirm" type="password">
+                    </div>
+
+                    <button class="btn btn-pill btn-block btn-primary active" type="submit" aria-pressed="true">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <div class="Login">
+        <div class="card">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+
+            <div class="card-body">
+                <form action="login"  method="post">
+                    <div class="form-group">
+                        <span class="alert-danger" asp-validation-for="Userlogin.Email"></span><br>
+                        <label asp-for="Userlogin.Email"></label><br>
+                        <input class="form-control" asp-for="Userlogin.Email" type="email">
+
+                        <label asp-for="Userlogin.Password"></label><br>
+                        <span class="alert-danger" asp-validation-for="Userlogin.Password"></span> 
+                        <input class="form-control" asp-for="Userlogin.Password" type="password">
+                    </div>
+
+                    <button class="btn btn-pill btn-block btn-primary active" type="submit" aria-pressed="true">LOG IN</button>
+                </form>
+            </div>
+        </div>
+        </div>
+
+<!-- END OF WRAPPER -->
+</div>
+

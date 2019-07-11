@@ -1,0 +1,32 @@
+/*Write all of your CSS here*/
+div.navheader, div.card-header {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+div.Dnavheader  {
+    border-bottom: 1px solid black;
+}
+h3.navheaderh1 {
+    display: inline-block;
+    vertical-align: top;
+}
+a.float-right{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+div.card {
+    /* border: 3px solid rgb(0, 0, 0); */
+    border-radius: 10px;
+    margin-left: 30px;
+    box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, .75);
+}
+
+div.Register, div.Login {
+    border-radius: 14px;
+    width: 48%;
+    height: 566px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 50px 0px 0px 0px;
+}

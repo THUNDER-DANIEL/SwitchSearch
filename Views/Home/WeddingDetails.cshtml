@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model WeddingPlannerRedo.Models.WeddingPlan
+<style>
+    .blue{
+        color: blue;
+    }
+</style>
+<div class="Dnavheader">
+    <h3 class="navheaderh1">Dojo Activity Center </h2>
+    <a class="float-right" href="/logout"><button>LOG OUT</button></a> <hr>
+    <a class="float-right" href="/dashboard"><button>Dashboard</button></a> 
+</div>
+
+<div class="jumbotron">
+  <h1 class="display-4">@Model.WedderOne</h1>
+
+      <p> Coordinator:</p> <p class="blue"> @Model.Creator.FirstName </p>
+  <p class="lead">Description: @Model.WeddingAddress</p>
+
+  <hr class="my-4">
+  <p>Participants:
+      <ul>
+          @foreach(var i in @Model.Guests)
+          {
+            <li>@i.User.FirstName @i.User.LastName</li>              
+          }
+
+      </ul>
+  </p>
+  <p class="lead">
+  </p>
+</div>
